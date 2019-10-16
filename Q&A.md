@@ -7,7 +7,9 @@
   - [如何使用git？](#如何使用git)
     - [git bash的安装](#git-bash的安装)
     - [git bash的使用](#git-bash的使用)
-      - [git bash在VSCode中的使用方法](#git-bash在vscode中的使用方法)
+      - [git bash和VSCode的关联](#git-bash和vscode的关联vscgitmd)
+      - [创建代码仓库，并向你的代码仓库提交修改](#创建代码仓库并向你的代码仓库提交修改)
+    - [在github创建分支](#在github创建分支)
 - [Markdown部分](#markdown部分)
   - [Markdown是什么？](#markdown是什么)
     - [基础语法（来自MPE介绍页面  ）](#基础语法来自mpe介绍页面-2)
@@ -19,6 +21,9 @@
 - [C++部分](#c部分)
   - [Visual Studio Code的安装与使用](#visual-studio-code的安装与使用)
     - [安装](#安装vsc的安装md)
+    - [使用](#使用vsc的使用md)
+- [控制台相关](#控制台相关)
+  - [控制台界面介绍](#控制台界面介绍)
 
 <!-- /code_chunk_output -->
 
@@ -39,10 +44,12 @@ git bash是shell [^1] 的一种，它是github配套的控制台，我们用它�
 > 参考链接：https://blog.csdn.net/sun_life_/article/details/82847801
 
 该文章将git bash从安装后到使用的步骤以图文的形式详细讲解了一遍。
-#### git bash在VSCode中的使用方法
+#### [git bash和VSCode的关联](VSCgit.md)
+
+#### 创建代码仓库，并向你的代码仓库提交修改
 在安装时选择以vscode作为git bash的编辑器，vscode中会出现“源代码管理”页面。在其中可以进行可视化的版本库管理，不过我们接下来介绍终端中的方法
-git bash安装完毕以后，在vscode的终端（默认为powershell）中输入git，会输出git自带的help界面，其中简单地介绍了git命令及参数，我们选其中一部分来讲解。
-* 首先确保你有一个github账号，然后我们开始
+git bash安装完毕以后，在vscode的终端（默认为powershell）中输入git，会输出git自带的指令列表，其中简单地介绍了git命令及参数，我们选其中一部分来讲解。
+* 首先确保你有一个[github](https://www.github.com)账号，然后我们开始
 ```bash
 $ git config --global user.name "YOURNAME"
 $ git config --global user.email "EXAMPLE@EXAMPLE.COM"
@@ -52,7 +59,12 @@ $ git config --global user.email "EXAMPLE@EXAMPLE.COM"
 ```bash
 $ git clone https://www.example.com
 ```
-* 在你修改完一个文件以后使用如下命令
+* 或者创建一个版本库
+```bash
+$ git init
+```
+只要使用该命令，终端就会把当前目录创建为一个版本库。但是还没结束，如果你想要创建一个远程版本库，首先在[github](https://www.github.com)上创建一个新的repository，然后repository name与你的版本库文件夹保持一致，其他不变，直接点击create repository，然后github会出现一个页面，引导你将本地的版本库上传至远程。
+* 在你修改完文件以后依次使用如下命令
 ```bash
 $ git add EXAMPLE.example(你的文件名及扩展名) //添加该文件到版本库
 $ git commit -m "备注信息"  //添加备注
@@ -64,6 +76,26 @@ $ dir或ls //查看当前目录下的文件
 $ cd //进入某个目录
 $ cd ..//回到上个目录
 $ mkdir //新建目录
+```
+### 在github创建分支
+> 参考链接：https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424
+
+在上面我们已经介绍了向github上传文件和从github下载文件的操作，而在这个部分中，你将学会如何参与编辑别人的项目。（强烈建议先看参考链接）
+
+以[本项目](https://github.com/OnlyblackTea/QAs)为例子，你可以在这里尝试如下操作：
+首先**clone**本项目到你的电脑中，在**终端**中打开该文件夹，输入：
+```bash
+$ git branch
+* master
+```
+(若不带"$" 则说明不是你将要输入的内容)
+其中**master**就是你当前版本库的分支。
+输入：
+```bash
+$ git branch exp
+$ git branch
+  exp
+* master
 ```
 # Markdown部分
 ## Markdown是什么？
@@ -98,6 +130,8 @@ _你也可以 **组合** 这些符号_
 
 ## WSL的安装方法
 
+
+
 ## 虚拟机中的安装方法
 
 ## docker中的安装方法
@@ -110,6 +144,11 @@ _你也可以 **组合** 这些符号_
 
 ### [安装](VSC的安装.md)
 
+### [使用](VSC的使用.md)
+
+# 控制台相关
+
+## 控制台界面介绍
 
 [^1]: 在计算机科学中，Shell俗称壳（用来区别于核），是指“为使用者提供操作界面”的软件（命令解析器）。它类似于DOS下的command.com和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。(来自百度百科)
 
